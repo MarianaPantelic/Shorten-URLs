@@ -54,8 +54,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [GitHub link](https://github.com/MarianaPantelic/Shorten-URLs)
+- Live Site URL: [Vercel Link](https://shorten-url-s.vercel.app/)
 
 ### Built with
 
