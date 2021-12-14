@@ -12,7 +12,7 @@ const Search = () => {
     const shortenLink = async (link) => {
         let newShortLinks = [];
         let newIsClicked = [...isClicked]
-        await fetch(`https://api.shrtco.de/v2/shorten?url=${link}/very/long/link.html`, {method: 'GET'})
+        await fetch(`https://api.shrtco.de/v2/shorten?url=${link}`, {method: 'GET'})
         .then(response=> response.json())
         .then(response => newShortLinks = [...shortLinks, response.result.full_short_link2]);
         localStorage.setItem('shortLinks', JSON.stringify(newShortLinks))
