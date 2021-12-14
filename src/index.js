@@ -1,17 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './css/style.css';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import CallToAction from './components/call-to-action';
+import Footer from './components/footer';
+import Hero from './components/hero';
+import NavBar from './components/navbar';
+import Search from './components/search';
+import Statistics from './components/statistics';
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const App = () => {
+    return(
+        <>
+            <NavBar/>
+            <Hero/>
+            <Search/>
+            <Statistics/>
+            <CallToAction/>
+            <Footer/>
+        </>
+    )
+}
+
+ReactDOM.render(<App />, document.getElementById("root"));
