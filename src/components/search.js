@@ -27,11 +27,15 @@ const Search = () => {
         if(inputRef.current.value === "") {
             setErrorMessage("Please add a link");
         } else {
-            let newLinks = [...links, inputRef.current.value];
-            localStorage.setItem('links', JSON.stringify(newLinks));
-            setLinks(newLinks);
-            shortenLink(inputRef.current.value);
-            inputRef.current.value = "";
+            if(isValidUrl(inputRef.current.value)) {
+                let newLinks = [...links, inputRef.current.value];
+                localStorage.setItem('links', JSON.stringify(newLinks));
+                setLinks(newLinks);
+                shortenLink(inputRef.current.value);
+                inputRef.current.value = "";
+            } else {
+                setErrorMessage("Please add a valid link");
+            } 
         }
     }
 
@@ -49,8 +53,17 @@ const Search = () => {
         console.log(updateIsClicked);
         setIsClicked(updateIsClicked);
         navigator.clipboard.writeText(localStorageShortLinks[idx]);
-        
     }
+
+    const isValidUrl = (url) => {
+        try {
+          new URL(url);
+        } catch (e) {
+          console.error(e);
+          return false;
+        }
+        return true;
+    };
 
     let localStorageLinks = JSON.parse(localStorage.getItem('links'));
     let localStorageShortLinks = JSON.parse(localStorage.getItem('shortLinks'));
